@@ -1,6 +1,6 @@
 //importa as funções necessárias do firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, GoogleProvider, signInWithPopup, signOut, onAuthStateChaged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 //configuração do Firebase
@@ -12,7 +12,6 @@ const firebaseConfig = {
     messagingSenderId: "190720060731",
     appId: "1:190720060731:web:c663182f2f6867267c9b1e"
   };
-
 
 //inicializa o firebase
 const app = initializeApp(firebaseConfig);
@@ -70,41 +69,33 @@ signUp.addEventListener('click', (event) => {
     });
 });
 
-//Lógica de login de usuários existentes
-const signIn = document.getElementById('submitSignIn');
-signIn.addEventListener('click', (event) => {
-    event.preventDefault(); //previne o comportamente padrão do botão
-
-    //adiciona os dados do formulário de login
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const auth = getAuth(); //configura o serviço de autenticação
-
-    //realiza o login com e-mail e senha
-})
-
-signIn.addEventListener('click', (event) => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+// Lógica de login de usuários existentes
+ 
+const signIn = document.getElementById("submitSignIn");
+signIn.addEventListener("click", (event) => {
+    event.preventDefault(); // Previne o comportamento padrão do botão
+ 
+    // Adiciona os dados do formulario de login
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
     const auth = getAuth(); // Configura o serviço de autenticação
-
+ 
     // Realiza o login com e-mail e senha
-    signInWithEmailAndPassword(auth, email,password)
-    .then((userCredential) => {
-        showMessage('Usuário logado com sucesso', 'signInMessage'); // Exibe mensagem de sucesso
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        showMessage("Usuário logado com sucesso", "signInMessage"); // Exibe mensagem de sucesso
         const user = userCredential.user;
-
+ 
         // Salva o ID do usuário no localStorage
-        localStorage.setItem('loggedInUserId', user.uid);
-
-        window.location.href = 'homepage.html'; // Redireciona para a página inicial
+        localStorage.setItem("loggedInUserId", user.uid);
+ 
+        window.location.href = "homepage.html"; //Redireciona para a página inicial
     })
     .catch((error) => {
         const errorCode = error.code;
-        if (errorCode === 'auth/invalid-credential') {
-            showMessage('Email ou senha incorreta', 'signInMessage')
+        if (errorCode === "auth/invalid-credential") {
+            showMessage("Email ou Senha incorreta", "signInMessage");
         } else {
-            showMessage('Essa conta não existe', 'signInMessage');
+            showMessage("Essa conta não existe", "signInMessage")
         }
     });
 });

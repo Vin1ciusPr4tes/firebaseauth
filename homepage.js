@@ -1,6 +1,6 @@
 //importa as funções necessárias do firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, GoogleProvider, signOut, onAuthStateChaged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getAuth, GoogleProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 //configuração do Firebase
@@ -22,7 +22,7 @@ const db = getFirestore(); //configura o firestore
 //monitora o estado de autenticação do usuário
 onAuthStateChanged(auth, (user) => {
     //busca o id do usuário autenticado salvo no localStorage
-    const loggedInUserId = localStorage.getItem('loggedInUsarId');
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
 
     //se o ID estiver no localStorage, tenta obter os dados do Firestore
     if (loggedInUserId) {
