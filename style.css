@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff4400, #00BBFA);
+    background: #3ce127;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ body {
 }
 
 .btn {
-    background-color: #1D6DCD;
+    background-color: #eb2222;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -92,7 +92,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #F1AF09;
+    background-color: #f4ba26;
     transform: scale(1.05);
 }
 
@@ -102,6 +102,7 @@ body {
 
 .icons i {
     font-size: 1.5rem;
+    justify-self: left;
     color: #1D6DCD;
     margin: 0 10px;
     cursor: pointer;
@@ -109,7 +110,7 @@ body {
 }
 
 .icons i:hover {
-    color: #F1AF09;
+    /* color: #9f8543; */
 }
 
 .links {
